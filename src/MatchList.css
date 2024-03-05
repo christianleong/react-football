@@ -1,0 +1,26 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.upcoming-matches-section,
+.recent-matches-section {
+    display: flex;
+    justify-content: center;
+}
+
+td>img {
+    height: 25px;
+}
+
+.team-name-td {
+    min-width: 200px;
+}
+
+.time-td {
+    min-width: 50px;
+}
+
+/* .league-name {
+    text-align: left;
+} */

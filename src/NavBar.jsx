@@ -1,11 +1,12 @@
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
+import "./NavBar.css"
 
 const navigation = [
   { name: 'Matches', href: '#' },
-  { name: 'Rankings', href: '#' },
-  { name: 'Team', href: '#' },
+  { name: 'Standings', href: '#' },
+  { name: 'Clubs', href: '#' },
   { name: 'Top Scorers', href: '#' },
 ]
 

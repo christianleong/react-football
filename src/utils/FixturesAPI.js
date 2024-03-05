@@ -1,9 +1,9 @@
-import moment from "moment";
 import axios from "axios";
 
 const ApiKey = import.meta.env.VITE_SOME_KEY_API_FOOTBALL_KEY;
 
-async function showNext15Matches() {
+// axios fetch to get next 15 matches and return an array of data.
+async function showNext15MatchesByLeague() {
   try {
     const res = await axios.get(
       "https://v3.football.api-sports.io/fixtures?league=39&next=15",
@@ -27,7 +27,7 @@ async function showNext15Matches() {
       homeTeamLogo: match.teams.home.logo,
       awayTeamLogo: match.teams.away.logo,
     }));
-    
+
     console.log(newData);
     return newData; // Optionally return data if needed for further processing
   } catch (error) {
@@ -36,7 +36,8 @@ async function showNext15Matches() {
   }
 }
 
-async function showLast15Matches() {
+// axios fetch to get last 15 matches and return an array of data.
+async function showLast15MatchesByLeague() {
   try {
     const res = await axios.get(
       "https://v3.football.api-sports.io/fixtures?league=39&last=15",
@@ -69,8 +70,8 @@ async function showLast15Matches() {
 }
 
 const FixturesAPI = {
-  showNext15Matches,
-  showLast15Matches,
+  showNext15MatchesByLeague,
+  showLast15MatchesByLeague,
 };
 
 export default FixturesAPI;

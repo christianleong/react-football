@@ -1,0 +1,13 @@
+.standings-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+th > img {
+    height: 25px;
+    display: inline;
+}
+
+.standing-teams {
+    text-align: left;
+}
