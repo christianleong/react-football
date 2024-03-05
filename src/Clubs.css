@@ -1,0 +1,20 @@
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.card {
+    max-width: 250px;
+    border: 1px solid grey;
+    border-radius: 7px;
+}
+
+.card > h2 {
+    font-weight: 600;
+    margin: 0 0 12px 12px;
+}
+
+.card > img {
+    width: 80px;
+    margin: 12px 0 25px 12px;
+}

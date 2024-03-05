@@ -1,31 +1,26 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NavBar from "./NavBar"
+// import Cards from "./Cards"
+import './Clubs.css'
+import teamsData from "./teamsData"
+
 
 export default function Clubs() {
-    
-    // const [clubs, setClubs] = useState[{name: "Manchester United", logo: "https://media.api-sports.io/football/teams/33.png" }]
 
     return (
         <div className="bg-white"> 
             <NavBar />
 
-            <div className="relative isolate px-6 pt-14 lg:px-8">
+            <div className="relative isolate px-6 pt-123 lg:px-40">
 
-                <div className="mx-auto py-32 sm:py-48 lg:py-56">
+                <div className="cards-wrapper mx-auto py-32 sm:py-48 lg:py-56">
                     
-                   {/* <div className="club-cards-wrapper">
-                    <ul className="club-list">
-                        <li className="club-card-wrapper">
-                            <a href="">
-                                <div className="club-card-badge">
-                                    <div className="club-card-info">
-                                        <h2>Arsenal</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                   </div> */}
+                    {teamsData.map(team => 
+                        <div className="card">
+                            <img src={team.logo} alt="" />
+                            <h2>{team.name}</h2>
+                        </div>
+                    )}
 
                 </div>
 
@@ -34,3 +29,5 @@ export default function Clubs() {
         </div>
     )
 }
+
+

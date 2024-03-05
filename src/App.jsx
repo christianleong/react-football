@@ -2,7 +2,7 @@ import './App.css'
 import Clubs from './Clubs'
 import Hero from './Hero'
 import MatchList from './MatchList'
-import MatchListItem from './MatchListItem'
+import MatchListItem from './HeadToHead'
 import Standings from './Standings'
 
 function App() {
@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       {/* <Hero /> */}
-      <MatchList />
+      {/* <MatchList /> */}
       {/* <MatchListItem /> */}
       {/* <Standings /> */}
-      {/* <Clubs /> */}
+      <Clubs />
     </>
   )
 }

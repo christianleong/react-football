@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import NavBar from './NavBar'
 import FixturesAPI from './utils/FixturesAPI'
+import NavBar from './NavBar'
+import moment from 'moment'
 import './MatchList.css'
 
 export default function MatchList() {
@@ -8,12 +9,16 @@ export default function MatchList() {
   const [nextFixtures, setNextFixtures] = useState([])
   const [lastFixtures, setLastFixtures] = useState([])
 
-  useEffect(() => {
-    FixturesAPI.showNext15MatchesByLeague()
-      .then(setNextFixtures)
-    FixturesAPI.showLast15MatchesByLeague()
-      .then(setLastFixtures)
-  },[])
+  // useEffect(() => {
+  //   FixturesAPI.showNext15MatchesByLeague()
+  //     .then(setNextFixtures)
+  //   FixturesAPI.showLast15MatchesByLeague()
+  //     .then(setLastFixtures)
+  // },[])
+
+  function convertUnixToTime(unixtimestamp) {
+    return(moment(unixtimestamp*1000).format('hh:mm A ddd'))
+  }
 
   return (
     <div className="bg-white">
@@ -36,7 +41,7 @@ export default function MatchList() {
                     {nextFixtures.map((fixture, idx) => 
                     <>
                       <tr>
-                        <td className='time-td' rowSpan={2}>{fixture.timestamp}</td>
+                        <td className='time-td' rowSpan={2}>{convertUnixToTime(fixture.timestamp)}</td>
                         <td className='logo-td'><img src={fixture.homeTeamLogo} alt="" /></td>
                         <td className='team-name-td'>{fixture.homeTeam}</td>
                         <td className='score-td'>-</td>
@@ -64,15 +69,15 @@ export default function MatchList() {
                     {lastFixtures.map((fixture, idx) => 
                     <>
                       <tr >
-                        <td className='time-td' rowSpan={2}>{fixture.timestamp}</td>
+                        <td className='time-td' rowSpan={2}>{convertUnixToTime(fixture.timestamp)}</td>
                         <td className='logo-td'><img src={fixture.homeTeamLogo} alt="" /></td>
                         <td className='team-name-td'>{fixture.homeTeam}</td>
-                        <td className='score-td'>-</td>
+                        <td className='score-td'>{fixture.homeGoals}</td>
                       </tr>
                       <tr>
                         <td className='logo-td'><img src={fixture.awayTeamLogo} alt="" /></td>
                         <td className='team-name-td'>{fixture.awayTeam}</td>
-                        <td className='score-td'>-</td>
+                        <td className='score-td'>{fixture.awayGoals}</td>
                       </tr>
                     </>
                     )}
@@ -92,12 +97,6 @@ export default function MatchList() {
 
 
 
-  // function getCurrentTime() {
-  //   new Date().getTime()/1000;
-  //   console.log(moment.utc())
-  //   console.log(moment())
-  // }
 
-  // getCurrentTime()
 
   {/* <caption className='league-name'>{fixture.countryLeague} {fixture.league}</caption> */}

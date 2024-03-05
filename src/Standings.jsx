@@ -8,13 +8,12 @@ export default function Standings() {
     const [standings, setStandings] = useState([])
     const [leagueData, setLeagueData] = useState([])
 
-    useEffect(() => {
-        // StandingsAPI.showStandingsByLeague()
-        //     .then(setStandings)
-        // StandingsAPI.showStandingsLeagueDetails()
-        //     .then(setLeagueData)
-    }, [])
-
+    // useEffect(() => {
+    //     StandingsAPI.showStandingsByLeague()
+    //         .then(setStandings)
+    //     StandingsAPI.showStandingsLeagueDetails()
+    //         .then(setLeagueData)
+    // }, [])
 
     return (
         <div className="bg-white"> 
