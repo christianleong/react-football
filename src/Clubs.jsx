@@ -4,7 +4,6 @@ import NavBar from "./NavBar"
 import './Clubs.css'
 import teamsData from "./teamsData"
 
-
 export default function Clubs() {
 
     return (

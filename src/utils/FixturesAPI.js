@@ -3,10 +3,11 @@ import axios from "axios";
 const ApiKey = import.meta.env.VITE_SOME_KEY_API_FOOTBALL_KEY;
 
 // axios fetch to get next 15 matches and return an array of data.
-async function showNext15MatchesByLeague() {
+async function showNextMatchesByLeague(input) {
   try {
+    const num = input;    
     const res = await axios.get(
-      "https://v3.football.api-sports.io/fixtures?league=39&next=15",
+      `https://v3.football.api-sports.io/fixtures?league=39&next=${num}`,
       {
         headers: {
           "x-rapidapi-host": "v3.football.api-sports.io",
@@ -37,10 +38,11 @@ async function showNext15MatchesByLeague() {
 }
 
 // axios fetch to get last 15 matches and return an array of data.
-async function showLast15MatchesByLeague() {
+async function showLastMatchesByLeague(input) {
   try {
+    const num = input
     const res = await axios.get(
-      "https://v3.football.api-sports.io/fixtures?league=39&last=15",
+      `https://v3.football.api-sports.io/fixtures?league=39&last=${num}`,
       {
         headers: {
           "x-rapidapi-host": "v3.football.api-sports.io",
@@ -69,9 +71,10 @@ async function showLast15MatchesByLeague() {
   }
 }
 
+
 const FixturesAPI = {
-  showNext15MatchesByLeague,
-  showLast15MatchesByLeague,
+  showNextMatchesByLeague,
+  showLastMatchesByLeague,
 };
 
 export default FixturesAPI;

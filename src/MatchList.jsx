@@ -8,17 +8,25 @@ export default function MatchList() {
 
   const [nextFixtures, setNextFixtures] = useState([])
   const [lastFixtures, setLastFixtures] = useState([])
+  const [numOfFixtures, setNumOfFixtures] = useState(15)
 
-  // useEffect(() => {
-  //   FixturesAPI.showNext15MatchesByLeague()
-  //     .then(setNextFixtures)
-  //   FixturesAPI.showLast15MatchesByLeague()
-  //     .then(setLastFixtures)
-  // },[])
+  useEffect(() => {
+    FixturesAPI.showNextMatchesByLeague(numOfFixtures)
+      .then(setNextFixtures)
+    FixturesAPI.showLastMatchesByLeague(numOfFixtures)
+      .then(setLastFixtures)
+  }, [numOfFixtures])
 
   function convertUnixToTime(unixtimestamp) {
-    return(moment(unixtimestamp*1000).format('hh:mm A ddd'))
+    return(moment(unixtimestamp*1000).format('hh:mm A ddd MMM Do'))
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Increment numOfFixtures by 5
+    setNumOfFixtures(prevNumOfFixtures => prevNumOfFixtures + 5);
+  }
+  
 
   return (
     <div className="bg-white">
@@ -87,6 +95,9 @@ export default function MatchList() {
               </section>
  
             </div>
+            <form onSubmit={handleSubmit} action="">
+              <button>Load 5 more</button>
+            </form>
         </div>
 
       </div>
@@ -94,9 +105,3 @@ export default function MatchList() {
     </div>
   )
 }
-
-
-
-
-
-  {/* <caption className='league-name'>{fixture.countryLeague} {fixture.league}</caption> */}

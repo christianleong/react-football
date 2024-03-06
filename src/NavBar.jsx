@@ -2,12 +2,14 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import "./NavBar.css"
+import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Matches', href: '#' },
-  { name: 'Standings', href: '#' },
-  { name: 'Clubs', href: '#' },
-  { name: 'Top Scorers', href: '#' },
+  { name: 'Hero', href: '/' },
+  { name: 'Matches', href: '/matches' },
+  { name: 'Standings', href: '/standings' },
+  { name: 'Clubs', href: '/clubs' },
+  { name: 'Team Stats', href: '/teamstats' }
 ]
 
 export default function NavBar() {
@@ -39,15 +41,16 @@ export default function NavBar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
-              </a>
+              // <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              //   {item.name}
+              // </a>
+              <Link to={item.href}>{item.name}</Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </a> */}
           </div>
         </nav>
 
