@@ -17,11 +17,6 @@ function App() {
         <Route path="/standings" element={<Standings />}></Route>
         <Route path="/clubs" element={<Clubs />}></Route>
       </Routes>
-      {/* <Hero /> */}
-      {/* <MatchList /> */}
-      {/* <TeamStats /> */}
-      {/* <Standings /> */}
-      {/* <Clubs /> */}
     </>
   )
 }

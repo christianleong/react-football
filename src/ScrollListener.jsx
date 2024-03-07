@@ -22,5 +22,4 @@ export default function ScrollListener({ setNumOfFixtures }) {
     };
   }, []);
 
-  // return <div className="loading-spinner"><BeatLoader /></div>;
 }

@@ -45,5 +45,9 @@ Welcome to Kickoff Analysis! An application built with react and axios where use
 - Add localstorage to allow users to store id of favourite teams, and fetch the team stats.
 - Add links to cards, hover effect and right arrow on bottom right corner.
 - Add more stats to the team stats page.
-- Add filter to standings page to change the season.
+- Add filters (by season, matchweek) to standings page to change the season.
 - Show live matches on upcoming fixtures, while still only listing 15 on each side.
+- Add colours to teams on the standings page to highlight the top four and the last few at risk of relegation.
+- Add upper green arrow and downwards red arrow for teams that moved on the standings table.
+- Add a dropdown to the teams on the standings table to show the last result, next game's timing and previous performance in a chart.
+Add modal to match list page to view the current standings, last 2 results in previous meeting, and each teams' 5 previous results. of the two teams.

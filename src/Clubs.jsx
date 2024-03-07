@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react"
 import NavBar from "./NavBar"
-// import Cards from "./Cards"
 import './Clubs.css'
 import teamsData from "./teamsData"
 
