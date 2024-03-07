@@ -6,6 +6,7 @@ Welcome to Kickoff Analysis! An application built with react and axios where use
 ## Table of contents
 - [Overview](#page_facing_up-overview)
   - [Screenshots](#screenshots)
+  - [Wireframe/References](#wireframereferences)
   - [Links](#link-links)
 - [My process](#bulb-my-process)
   - [Built with](#built-with)
@@ -15,7 +16,16 @@ Welcome to Kickoff Analysis! An application built with react and axios where use
 
 ## :page_facing_up: Overview
 ### Screenshots
-<img src="./screenshots/homepage.png" alt="Homepage" style="width:900px;"/>
+<img src="./screenshots/homepage.png" alt="Homepage" style="width:400px;"/>
+<img src="./screenshots/fixtures.png" alt="Fixtures" style="width:400px;"/>
+<img src="./screenshots/standings.png" alt="Standings" style="width:400px;"/>
+<img src="./screenshots/clubs.png" alt="Clubs" style="width:400px;"/>
+<img src="./screenshots/stats.png" alt="Stats" style="width:400px;"/>
+
+### Wireframe/References
+<img src="./wireframe/Screenshot 2024-03-05 at 11.00.57 am.png" alt="" style="width:400px;"/>
+<img src="./wireframe/Screenshot 2024-03-04 at 12.32.12 pm.png" alt="" style="width:400px;"/>
+<img src="./wireframe/Screenshot 2024-03-08 at 9.45.28 am.png" alt="" style="width:400px;"/>
 
 ### :link: Links
 - **Github:** [https://github.com/christianleong/react-football](https://github.com/christianleong/react-football)
