@@ -35,6 +35,7 @@ Welcome to Kickoff Analysis! An application built with react and axios where use
 ### Built with
 - HTML
 - CSS
+- JavaScript
 - Flexbox
 - Axios
 - Tailwind CSS
