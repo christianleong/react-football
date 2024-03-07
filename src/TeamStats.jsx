@@ -10,6 +10,7 @@ export default function TeamStats() {
   const [teamStats1, setTeamStats1] = useState([])
   const [searchInput2, setSearchInput2] = useState("Manchester United")
   const [teamStats2, setTeamStats2] = useState([])
+  const [h2hStats, setH2HStats] = useState([])
 
   function handleClick1(e) {
     e.preventDefault()
@@ -33,39 +34,46 @@ export default function TeamStats() {
     setSearchInput2(e.target.value)
   }
 
+  if (teamStats1 && teamStats2) {
+    TeamsAPI.showh2hStats(teamStats1.teamId, teamStats2.teamId)
+      .then(setH2HStats)
+  }
+
   return (
     <div className="bg-white">
       <NavBar />
 
       <div style={{marginTop: "200px"}}>
 
-        <div >
+        <div className='stats-wrapper'>
 
-          {/* 1st select field */}
-          <section className="search-section">
-            <form onSubmit={handleClick1} action="">
-              <label htmlFor="">Select a team</label>
-              <select onChange={handleChange1}>
-                {teamsData.map(team =>
-                  <option value={team.name}>{team.name}</option>
-                )}
-              </select>
-              <button>submit</button>
-            </form>
+          <div className='form-wrapper'>
+            {/* 1st select field */}
+            <section className="search-section">
+              <form onSubmit={handleClick1} action="">
+                <label htmlFor="">Select a team</label>
+                <select onChange={handleChange1}>
+                  {teamsData.map(team =>
+                    <option value={team.name}>{team.name}</option>
+                  )}
+                </select>
+                <button>submit</button>
+              </form>
+            </section>
 
-          {/* 2nd select field */}
-          </section>
-          <section className="search-section">
-            <form onSubmit={handleClick2} action="">
-              <label htmlFor="">Select a team</label>
-              <select onChange={handleChange2}>
-                {teamsData.map(team =>
-                  <option value={team.name}>{team.name}</option>
-                )}
-              </select>
-              <button>submit</button>
-            </form>
-          </section>
+            {/* 2nd select field */}
+            <section className="search-section">
+              <form onSubmit={handleClick2} action="">
+                <label htmlFor="">Select a team</label>
+                <select onChange={handleChange2}>
+                  {teamsData.map(team =>
+                    <option value={team.name}>{team.name}</option>
+                  )}
+                </select>
+                <button>submit</button>
+              </form>
+            </section>
+          </div>
 
           {/* Table */}
           <thead>
@@ -167,6 +175,30 @@ export default function TeamStats() {
             </tr>
           </tbody>
           
+          {/* <div className='h2h-wrapper'>
+            <header>
+              <h2>Date/time</h2>
+            </header>
+            <section className='h2h-details'>
+              <h2>Home</h2>
+              <h2>1-1</h2>
+              <h2>Away</h2>
+            </section>
+          </div> */}
+
+          {/* <div className='h2h-wrapper'>
+            {h2hStats.map(stat => {
+              <header>
+                <h2>Date/time</h2>
+              </header>
+              <section className='h2h-details'>
+                <h2>Home</h2>
+                <h2>1-1</h2>
+                <h2>Away</h2>
+              </section>
+              })}
+          </div> */}
+
         </div>
 
       </div>

@@ -62,6 +62,7 @@ async function showLastMatchesByLeague(input) {
       awayTeam: match.teams.away.name,
       homeTeamLogo: match.teams.home.logo,
       awayTeamLogo: match.teams.away.logo,
+      matchStatus: match.fixture.status.short
     }));
     console.log(newData);
     return newData; // Optionally return data if needed for further processing

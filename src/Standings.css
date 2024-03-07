@@ -1,6 +1,9 @@
 .standings-wrapper {
     display: flex;
+    /* flex-direction: column; */
     justify-content: center;
+    /* align-items: center; */
+    /* width: 200px; */
 }
 
 th > img {
@@ -10,4 +13,39 @@ th > img {
 
 .standing-teams {
     text-align: left;
+    padding: 0 0 0 10px;
+    min-width: 300px;
 }
+
+thead {
+    background-color: #37003c;
+    color: white;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    min-width: 30px;
+}
+
+tbody {
+    padding-top: 20px;
+}
+
+tfoot {
+    border-top: 1px solid darkgray;
+}
+
+.flex {
+    padding: 5px 10px 5px 10px;
+}
+
+h2, h3 {
+    padding: 0 0 0 10px;
+}
+
+/* .glossary-wrapper {
+    display: flex;
+} */

@@ -5,7 +5,7 @@ import "./NavBar.css"
 import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Hero', href: '/' },
+  { name: 'Home', href: '/' },
   { name: 'Matches', href: '/matches' },
   { name: 'Standings', href: '/standings' },
   { name: 'Clubs', href: '/clubs' },
@@ -21,13 +21,13 @@ export default function NavBar() {
         
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5">
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-12"
+                src="src/icons/epl_lion.png"
                 alt=""
               /> 
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -58,16 +58,15 @@ export default function NavBar() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
+
+              <Link to="/" className="-m-1.5 p-1.5">
                 <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  className="h-12"
+                  src="src/icons/epl_lion.png"
                   alt=""
-                />
+                /> 
+              </Link>
 
-
-              </a>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -91,12 +90,12 @@ export default function NavBar() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
+                  {/* <a
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -105,3 +104,4 @@ export default function NavBar() {
       </header>
     )
 }
+

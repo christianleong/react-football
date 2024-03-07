@@ -1,6 +1,8 @@
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 10px;
 }
 
 .upcoming-matches-section,
@@ -9,19 +11,55 @@
     justify-content: center;
 }
 
-td>img {
-    height: 25px;
+table {
+    border: 1px solid darkgray;
 }
 
-.team-name-td {
-    min-width: 200px;
+td>img {
+    max-width: 30px;
+}
+
+.team-name-td-home,
+.team-name-td-away {
+    min-width: 400px;
+    padding-left: 10px;
+}
+
+.logo-td-home,
+.logo-td-away {
+    padding: 5px 0 5px 0;
+}
+
+.team-name-td-away,
+.score-td-away,
+.logo-td-away,
+.time-td {
+    border-bottom: 1px solid darkgray;
 }
 
 .time-td {
     min-width: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* .league-name {
     text-align: left;
 } */
 
+.score-td-home,
+.score-td-away {
+    text-align: center;
+    width: 20px;
+}
+
+caption {
+    background-color: #37003c;
+    color: #ffffff;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    margin: 70px 0 70px 0;
+}

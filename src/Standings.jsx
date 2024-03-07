@@ -5,15 +5,19 @@ import './Standings.css'
 import { MinusCircleIcon } from '@heroicons/react/24/solid'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import { XCircleIcon } from '@heroicons/react/24/solid'
+import { BeatLoader } from "react-spinners";
+import ScrollListener from './ScrollListener'
 
 export default function Standings() {
 
     const [standings, setStandings] = useState([])
     const [leagueData, setLeagueData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         StandingsAPI.showStandingsByLeague()
             .then(setStandings)
+            .then(() => setIsLoading(false));
         StandingsAPI.showStandingsLeagueDetails()
             .then(setLeagueData)
     }, [])
@@ -44,11 +48,15 @@ export default function Standings() {
         <div className="bg-white"> 
             <NavBar />
 
-            <div className="relative isolate px-6 pt-14 lg:px-8">
+            <div style={{ marginTop:"120px" }}>
 
                 <div className='standings-wrapper'>
 
                     <table>
+
+                        {isLoading 
+                        ? <thead></thead>
+                        :
                         <thead>
                             <th>Club</th>
                             <th>MP</th>
@@ -60,10 +68,11 @@ export default function Standings() {
                             <th>GD</th>
                             <th>Pts</th>
                             <th>Last 5</th>
-                        </thead>
+                        </thead>}
                         
+                        <tbody>
                         {standings.map(standing =>
-                            <tbody>
+                            <tr>
                                 <th className='standing-teams'>{standing.teamRank} <img src={standing.teamLogo} alt="" /> {standing.teamName}</th>
                                 <td>{standing.teamMP}</td>
                                 <td>{standing.teamWins}</td>
@@ -74,12 +83,37 @@ export default function Standings() {
                                 <td>{standing.teamGD}</td>
                                 <td>{standing.teamPts}</td>
                                 <td>{renderLast5Icons(standing.teamLast5)}</td>
-                            </tbody>
+                            </tr>
                         )}
+                        </tbody>
+
                     </table>
 
-                </div>
+                        {isLoading 
+                        ? <div></div>
+                        :
+                        <div>
+                            <h2>Glossary</h2>
+                            <div className='glossary-wrapper'>
+                                <div>
+                                    <h3>MP = Matches Played</h3>
+                                    <h3>W = Wins</h3>
+                                    <h3>D = Draws</h3>
+                                    <h3>L = Loses</h3>
+                                </div>
+                                <div>
+                                    <h3>GF = Goals For</h3>
+                                    <h3>GA = Goals Against</h3>
+                                    <h3>GD = Goals Difference</h3>
+                                    <h3>Pts = Points</h3>
+                                </div>
+                            </div>
+                        </div>
+                        }
 
+
+                </div>
+            <ScrollListener />
             </div>
             
         </div>
