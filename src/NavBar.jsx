@@ -23,7 +23,7 @@ export default function NavBar() {
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
               <img
-                className="h-12"
+                className="h-12 lion-image"
                 src="src/icons/epl_lion.png"
                 alt=""
               /> 
@@ -40,11 +40,8 @@ export default function NavBar() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              // <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-              //   {item.name}
-              // </a>
-              <Link to={item.href}>{item.name}</Link>
+            {navigation.map((item, idx) => (
+              <Link key={idx} to={item.href}>{item.name}</Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">

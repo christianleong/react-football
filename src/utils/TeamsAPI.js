@@ -26,7 +26,7 @@ async function showTeamStats(searchInput) {
         },
       }
     );
-    console.log(result2.data.response);
+    // console.log(result2.data.response);
 
     function getArrOfLineups(arr) {
       let lineups = [];
@@ -73,14 +73,14 @@ async function showTeamStats(searchInput) {
 async function showh2hStats(homeId, awayId) {
   try {
     const result3 = await axios.get(
-      `https://v3.football.api-sports.io/fixtures/headtohead?h2h=33-34&last=5`,
+      `https://v3.football.api-sports.io/fixtures/headtohead?h2h=${homeId}-${awayId}&last=5`,
       {
         headers: {
           "x-rapidapi-host": "v3.football.api-sports.io",
           "x-rapidapi-key": ApiKey,
         },
       }
-    )
+    );
 
     const h2hStats = result3.data.response;
     let newData = h2hStats.map(stat => ({
@@ -90,6 +90,7 @@ async function showh2hStats(homeId, awayId) {
       homeTeamName: stat.teams.home.name,
       awayTeamName: stat.teams.away.name,
     }))
+    console.log(newData);
     return newData
   } catch (error) {
     console.error("Error fetching data:", error);

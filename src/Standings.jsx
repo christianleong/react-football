@@ -52,7 +52,7 @@ export default function Standings() {
 
                 <div className='standings-wrapper'>
 
-                    <table>
+                    <table className='standings-table'>
 
                         {isLoading 
                         ? <thead></thead>
@@ -71,8 +71,8 @@ export default function Standings() {
                         </thead>}
                         
                         <tbody>
-                        {standings.map(standing =>
-                            <tr>
+                        {standings.map((standing, idx) =>
+                            <tr key={idx}>
                                 <th className='standing-teams'>{standing.teamRank} <img src={standing.teamLogo} alt="" /> {standing.teamName}</th>
                                 <td>{standing.teamMP}</td>
                                 <td>{standing.teamWins}</td>
@@ -88,24 +88,23 @@ export default function Standings() {
                         </tbody>
 
                     </table>
-
                         {isLoading 
                         ? <div></div>
                         :
-                        <div>
+                        <div className='footer-wrapper'>
                             <h2>Glossary</h2>
                             <div className='glossary-wrapper'>
-                                <div>
-                                    <h3>MP = Matches Played</h3>
-                                    <h3>W = Wins</h3>
-                                    <h3>D = Draws</h3>
-                                    <h3>L = Loses</h3>
+                                <div className='glossary-1'>
+                                    <h4>MP = Matches Played</h4>
+                                    <h4>W = Wins</h4>
+                                    <h4>D = Draws</h4>
+                                    <h4>L = Loses</h4>
                                 </div>
-                                <div>
-                                    <h3>GF = Goals For</h3>
-                                    <h3>GA = Goals Against</h3>
-                                    <h3>GD = Goals Difference</h3>
-                                    <h3>Pts = Points</h3>
+                                <div className='glossary-2'>
+                                    <h4>GF = Goals For</h4>
+                                    <h4>GA = Goals Against</h4>
+                                    <h4>GD = Goals Difference</h4>
+                                    <h4>Pts = Points</h4>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +113,7 @@ export default function Standings() {
 
                 </div>
             <ScrollListener />
+            {isLoading ? <div className="loading-spinner"><BeatLoader /></div> : <div></div> }
             </div>
             
         </div>

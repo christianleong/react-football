@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import FixturesAPI from './utils/FixturesAPI'
 import NavBar from './NavBar'
-import moment from 'moment'
 import './MatchList.css'
 import ScrollListener from './ScrollListener'
 import { BeatLoader } from 'react-spinners'
+import { convertUnixToTimeDayMonth } from '/src/utils/UnixConverter.js';
 
 export default function MatchList() {
 
@@ -14,6 +14,7 @@ export default function MatchList() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     FixturesAPI.showNextMatchesByLeague(numOfFixtures)
       .then(setNextFixtures)
       .then(() => setIsLoading(false));
@@ -21,10 +22,6 @@ export default function MatchList() {
       .then(setLastFixtures)
       .then(() => setIsLoading(false));
   }, [numOfFixtures])
-
-  function convertUnixToTime(unixtimestamp) {
-    return(moment(unixtimestamp*1000).format('hh:mm A ddd MMM Do'))
-  }
   
   return (
     <div className="bg-white">
@@ -47,7 +44,7 @@ export default function MatchList() {
                     {nextFixtures.map((fixture, idx) => 
                     <>
                       <tr>
-                        <td className='time-td' rowSpan={2}>{convertUnixToTime(fixture.timestamp)}</td>
+                        <td className='time-td' rowSpan={2}>{convertUnixToTimeDayMonth(fixture.timestamp)}</td>
                         <td className='logo-td-home'><img src={fixture.homeTeamLogo} alt="" /></td>
                         <td className='team-name-td-home'>{fixture.homeTeam}</td>
                         <td className='score-td-home'>-</td>
@@ -75,7 +72,7 @@ export default function MatchList() {
                     {lastFixtures.map((fixture, idx) => 
                     <>
                       <tr >
-                        <td className='time-td' rowSpan={2}>{convertUnixToTime(fixture.timestamp)}</td>
+                        <td className='time-td' rowSpan={2}>{convertUnixToTimeDayMonth(fixture.timestamp)}</td>
                         <td className='logo-td-home'><img src={fixture.homeTeamLogo} alt="" /></td>
                         <td className='team-name-td-home'>{fixture.homeTeam}</td>
                         {fixture.homeGoals === null 
@@ -98,7 +95,7 @@ export default function MatchList() {
             </div>
 
             <ScrollListener setNumOfFixtures={setNumOfFixtures}/>
-            {isLoading ? <div></div> : <div className="loading-spinner"><BeatLoader /></div> }
+            {isLoading ? <div className="loading-spinner"><BeatLoader /></div> : <div></div> }
 
             
         </div>
