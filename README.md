@@ -40,6 +40,7 @@ Welcome to Kickoff Analysis! An application built with react and axios where use
 - Axios
 - Tailwind CSS
 - React
+- [API Football](https://www.api-football.com/documentation-v3)
 
 ### Key takeaways
 - Having an idea, wireframe and reference is important to building the app.
